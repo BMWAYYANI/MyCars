@@ -25,8 +25,7 @@ do{
      System.out.println("write the number for the option that you want to go to:");
      System.out.println("1-buy a car");
      System.out.println("2-sell a car");
-     System.out.println("3-Admin");
-     System.out.println("4-EXIT");
+     System.out.println("3-EXIT");
 
      
     choosingOptions = input.nextInt();
@@ -38,11 +37,7 @@ do{
        { 
            sellCar();
        }
-       else if (choosingOptions==3)
-       {
-           admin();
-       }
-        else if (choosingOptions==4)
+        else if (choosingOptions==3)
        {
  System.out.println("---------------------------");
  System.out.println("Thank you for using MyCars!");
@@ -51,7 +46,7 @@ do{
        
         }
 
-while(choosingOptions !=4);
+while(choosingOptions !=3);
     }
         }
 

@@ -29,9 +29,11 @@ public class Car {
         setodometer(odometer);
         setprice(price);  
         setavailability(availability);
+    }
+  
         
         // setters
-    }
+    
     public void setmake(String make){
         this.make=make;
     
@@ -43,8 +45,8 @@ public class Car {
     public void setcondition(String condition){
         this.condition=condition;
     }
-    public void setavailability(String availability){
-        this.availability=availability;
+    public String setavailability(String availability){
+       return this.availability=availability;
     }
     
     

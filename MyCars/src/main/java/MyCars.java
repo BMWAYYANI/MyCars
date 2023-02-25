@@ -61,7 +61,6 @@ the odometer will be set to 0 otherwise the user will enter it.
     
        //this method adds a car to the arraylist
       public void sellCar(){ 
-        i=0;
         
         System.out.println("enter the car make: ");
         setmake(in.nextLine());
@@ -75,13 +74,12 @@ the odometer will be set to 0 otherwise the user will enter it.
         setyear(in.nextInt());
           
         System.out.println("enter the price of the car: ");
-        
-                setavailability("available");
-
         setprice(in.nextInt());
+        
+        setavailability("available");
+        
           x = new Car(getmake(),getmodel(),getcondition(),getavailability(),getyear(),getodometer(),getprice());
        carList.add(x);
-          i++;
         in.nextLine();
         }
       
@@ -117,12 +115,22 @@ the odometer will be set to 0 otherwise the user will enter it.
        }
        
        if (inI<=carList.size()){
+           if (carList.get(inI-1).getavailability().equals("Sold")){
+               System.out.println("that car is sold");
+           }
+           else{
       System.out.println("Congratulations! you are now a proud owner of "+ carList.get(inI-1).getyear()+ " " +carList.get(inI-1).getmake()+" "+carList.get(inI-1).getmodel());
-      setavailability("Sold");
+              setmake(carList.get(inI-1).getmake());
+               setmodel(carList.get(inI-1).getmodel());
+               setcondition(carList.get(inI-1).getcondition());
+               setyear(carList.get(inI-1).getyear());
+               setodometer(carList.get(inI-1).getodometer());
+               setprice(carList.get(inI-1).getprice());   
+               setavailability("Sold");
       x = new Car(getmake(),getmodel(),getcondition(),getavailability(),getyear(),getodometer(),getprice());
       carList.set(inI-1,x);
       in.nextLine();
-
+           }
         }
         else
        {
@@ -135,40 +143,7 @@ the odometer will be set to 0 otherwise the user will enter it.
      
      
      
-     // this is for admin to change things like removing a car from the list.
-      public void admin(){
-          i =0;
-          System.out.println("Enter your access password:");
-                            if(in.nextLine().equals("1234")){
-                     if (carList.isEmpty()){
-    System.out.println("there are no cars for sale! \n");
-    }
-    else {
-       System.out.println("[Car List]");
-        while(i<carList.size()){
-       System.out.println("-------------Car no.("+(i+1)+")---------------");
-       System.out.println("make: "+carList.get(i).getmake());
-       System.out.println("model: "+carList.get(i).getmodel());
-       System.out.println("condition: "+carList.get(i).getcondition());
-       System.out.println("year: "+carList.get(i).getyear());
-       System.out.println("odometer: "+carList.get(i).getodometer()+" km");
-       System.out.println("price: "+carList.get(i).getprice()+" SAR");
-       System.out.println("availability: "+carList.get(i).getavailability());
-       System.out.println("--------------------------------------");
-       i++;
-       System.out.println("write the number of the list for the car that you want to remove");
-       carList.remove(in.nextInt()-1);
-           
-    }
-                                       }
-                            }
-
-                            else{
-            System.out.println("Wrong");
-           
-                            }
-      }
-     
+  
      
       
 
